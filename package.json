@@ -1,11 +1,18 @@
 {
     "name": "Frontend_Developer_Test",
-    "version": "1.0.0",
+    "version": "0.0.1",
+    "description": "Rock paper scissors",
+    "repository": {
+    "type": "git",
+	    "url": "git://github.com/khamiltonuk/test-new.git"
+	},
     "devDependencies": {
         "grunt": "0.4.2",
         "grunt-cli": "0.1.13",
         "grunt-contrib-jshint": "0.10.0",
         "grunt-contrib-csslint": "0.2.0",
+        "grunt-contrib-sass": "^0.7.3",
+	    "grunt-contrib-watch": "^0.6.1",
         "grunt-contrib-connect": "0.6.0"
     }
 }

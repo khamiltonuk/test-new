@@ -12,9 +12,38 @@ module.exports = function ( grunt ) {
                 jshintrc: ".jshintrc"
             },
             defaults: [
-                "src/**/*.js",
+                "js/*.js",
                 'Gruntfile.js'
             ]
+        },
+
+        sass: {
+            dist: {
+                files: {
+                    'css/main.css': 'sass/main.scss'
+                },
+                options: {
+                    style: 'compressed'
+                }
+            },
+            dev: {
+                options: {
+                    sourcemap: true
+                },
+                files: {
+                    'css/main.css': 'sass/main.scss'
+                }
+            }
+        },
+
+        watch: {
+            sass: {
+                files: ['sass/*.scss'],
+                tasks: ['sass:dev'],
+                options: {
+                    spawn: false
+                },
+            },
         },
 
         csslint: {
@@ -25,7 +54,7 @@ module.exports = function ( grunt ) {
                     formatters: ['compact']
                 },
                 src: [
-                    'src/**/*.css'
+                    'css/*.css'
                 ]
             }
         },
@@ -45,11 +74,15 @@ module.exports = function ( grunt ) {
     grunt.loadNpmTasks( 'grunt-contrib-jshint' );
     grunt.loadNpmTasks( 'grunt-contrib-csslint' );
     grunt.loadNpmTasks( 'grunt-contrib-connect' );
+    grunt.loadNpmTasks( 'grunt-contrib-watch' );
+    grunt.loadNpmTasks( 'grunt-contrib-sass' );
 
     // Runs all checkstyle stuff
     grunt.registerTask( 'default', [
         'jshint',
-        'csslint'
+        'csslint',
+        'sass:dev',
+        'watch'
     ] );
 
 };

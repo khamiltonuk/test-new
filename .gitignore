@@ -1,2 +1,6 @@
 .DS_Store
 *.DS_Store
+node_modules/
+css/main.css
+.sass-cache/
+css/main.css.map
