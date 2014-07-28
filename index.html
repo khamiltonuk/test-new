@@ -1,16 +1,82 @@
 <!doctype html>
 <html class="no-js" lang="">
     <head>
-        <title></title>
+        <title>Rock paper Scissors lizard spock</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
         <link rel="stylesheet" href="css/main.css">
+        
     </head>
     <body>
-    	<h1>hello </h1>
+        <div class="center-wrap">
+    	<h1>Rock paper Scissors lizard spock</h1>
+            <div id="js-battle-dome" class="frame">
+                <!-- Results -->
+                <ul class="results">
+                    <li id="js-win">Win: <span></span></li>
+                    <li id="js-draw">Draw: <span></span></li>
+                    <li id="js-lose">Lose: <span></span></li>
+                </ul>
+
+                <!-- Hands -->
+                <div id="left-hand" class="animated"></div>
+                <div id="right-hand" class="animated"></div>
 
 
+                <!-- Controls -->
+                <div id="js-set-up" class="actions">
+                    <button id="paper">paper</button>
+                    <button id="rock">rock</button>
+                    <button id="lizard">lizard</button>
+                    <button id="spock">spock</button>
+                    <button id="scissors">scissors</button>
+                </div>
+                <!-- Computer Play -->
+                <button id="js-auto-play" class="auto-play-icon">Ai Play</button>
+
+                <!-- Setting -->
+                <div id="settings-pane" class="settings" role="dialog" >
+                    <form>
+                        <h2>Select you game mode</h2>
+                        <div class="inputfield">
+                            <input type="radio" name="game-mode" value="3" id="best-of-3" checked/>
+                            <label for="best-of-3"><span></span>Best of 3</label>
+                        </div>
+                        <div class="inputfield">
+                            <input type="radio" name="game-mode" value="5" id="best-of-5" />
+                            <label for="best-of-5"><span></span>Best of 5</label>
+                        </div>
+                        <div class="inputfield">
+                            <input type="radio" name="game-mode" value="0" id="non-stop" />
+                            <label for="non-stop"><span></span>Non stop</label>
+                        </div>
+                        <!--<h2>Select you game type</h2>
+                        <div class="inputfield">
+                            <input type="radio" name="game-type" value="rps" id="rps"/>
+                            <label for="rps"><span></span>Rock paper scissors</label>
+                        </div>
+                        <div class="inputfield">
+                            <input type="radio" name="game-type" value="rpsls" id="rpsls"  checked/>
+                            <label for="rpsls"><span></span>Rock paper scissors lizard spock</label>
+                        </div>-->
+                        <h2>Rules</h2>
+                        <p>"It's very simple. Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons Spock, Spock smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves Spock, Spock vaporizes rock, and as it always has rock crushes scissors"</p>
+                    </form>
+                    
+                </div>
+                <button id="js-settings" class="settings-icon">settings</button>
+                <button id="js-reset" class="reset-icon">reset</button>
+                
+
+            </div>
+        </div>
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>!window.jQuery && document.write('<script src="js/jquery-1.10.2.js"><\/script>')</script>
         <script src="js/main.js"></script>
     </body>
 </html>

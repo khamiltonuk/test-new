@@ -11,8 +11,11 @@ module.exports = function ( grunt ) {
             options: {
                 jshintrc: ".jshintrc"
             },
+            exclude: [
+                //'js/jquery-1.10.2.js'
+            ],
             defaults: [
-                "js/*.js",
+                "js/main.js",
                 'Gruntfile.js'
             ]
         },
