@@ -53,7 +53,7 @@ var rockPaperScissors = function(){
             $('#left-hand').removeClass().addClass(userChoice).text('player one plays: ' + userChoice);
             $('#right-hand').removeClass().addClass(randomChoice).text('player two plays: ' + randomChoice);
             renderScore();
-            if (gameMode != 0){
+            if (gameMode !== 0){
                 checkStatus();
             }
         }, 1000);
