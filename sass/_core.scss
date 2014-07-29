@@ -1,40 +1,8 @@
-@mixin box-sizing($box-model) {
-  -webkit-box-sizing: $box-model; // Safari <= 5
-  -moz-box-sizing: $box-model; // Firefox <= 19
-  box-sizing: $box-model;
-}
-@mixin transform($transformation) {
-  -webkit-transform:($transformation);
-  -ms-transform:($transformation);
-  -moz-transform:($transformation);
-  transform:($transformation);
-}
-@mixin transition($effect) {
-  -webkit-transition:$effect;
-  -ms-transition:$effect;
-  -moz-transition:$effect;
-  transition:$effect;
-}
-@mixin background-size($size) {
-  -webkit-background-size:$size;
-  -o-background-size:$size;
-  -moz-background-size:$size;
-  background-size:$size;
-}
-
 *,
 *:after,
 *:before {
   @include box-sizing(border-box);
 }
-$primary_colour: #DA727E;
-$primary_colour_alternative: #AC6C82;
-
-$secondary_colour: #455C7B;
-$secondary_colour_alternative: #685C79 ;
-
-$hightlight_colur: #FFAA5C;
-
 /* bicubic resizing for non-native sized IMG:
 code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
 .ie7 img { -ms-interpolation-mode: bicubic; }
@@ -47,36 +15,58 @@ html, body {
 body {
 	background: $primary_colour;
   min-height: 100%;
-  text-transform: uppercase; 
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.hidden {
+  display: none;
+}
+.screenreader {
+  position: absolute;
+  text-indent: -999em;
 }
 h1 {
   text-align: center;
   margin-top: 0;
   padding: 20px;
+  text-transform: uppercase;
   color: $secondary_colour;
 }
-.hidden {
-  display: none;
+h2 {
+  text-transform: uppercase;
+}
+.frame {
+  position: relative;
+  height: 560px;
+  background: $secondary_colour;
+  overflow: hidden;
+}
+.center-wrap {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .results {
-    margin:0;
-    padding: 0;
-    width: 100%;
-    top:60px;
-    position: absolute;
-    left: 0;
-    list-style: none;
-    text-align: center;
-    li {
-        display: inline-block;
-        min-width: 70px;
-        margin: 2px;
-        color: $primary_colour;
-        span {
-          //min-width: 10px;
-        }
+  text-transform: uppercase;
+  margin:0;
+  padding: 0;
+  width: 100%;
+  top:60px;
+  position: absolute;
+  left: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    display: inline-block;
+    min-width: 70px;
+    margin: 2px;
+    color: $primary_colour;
+    span {
+      //min-width: 10px;
     }
+  }
 }
+/* ============================================ *
+   * Hand shake css animation
+* ============================================ */
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -146,20 +136,71 @@ h1 {
   }
 }
 
-#left-hand.bounce { 
-  -webkit-animation-name: left-bounce;
-  animation-name: left-bounce; }
-#right-hand.bounce {
-  -webkit-animation-name: right-bounce;
-  animation-name: right-bounce;
-}
 .bounce {
   -webkit-transform-origin: center bottom;
   -ms-transform-origin: center bottom;
   transform-origin: center bottom;
 }
+/* ============================================ *
+   * Hands
+* ============================================ */
 
-.shake {
+#left-hand,
+#right-hand {
+  background: url('../images/hands-sprite.png') transparent;
+  width: 312px;
+  position: absolute;
+  margin-top: -67px;
+  height: 135px;
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#left-hand {
+  left: 0;
+  top: 30%;
+  background-position: -312px -135px;
+  &.paper {background-position: 0 -135px; }
+  &.scissors {background-position: 0 0; }
+  &.spock {background-image: url('../images/spock.jpg'); }
+  &.lizard {background-image: url('../images/lizard.jpg'); }
+  &.bounce { 
+    -webkit-animation-name: left-bounce;
+    animation-name: left-bounce;
+  }
+}
+#right-hand {
+  right: 0;
+  top: 50%;
+  background-position: -312px 0;
+  &.paper {background-position: -625px 0; }
+  &.scissors {background-position: -624px 135px; }
+  &.spock {background-image: url('../images/spock.jpg'); }
+  &.lizard {background-image: url('../images/lizard.jpg'); }
+  &.bounce {
+    -webkit-animation-name: right-bounce;
+    animation-name: right-bounce;
+  }
+}
+/* ============================================ *
+   * Buttons
+* ============================================ */
+button {
+  text-transform: uppercase;
+  display: inline-block;
+  background: $primary_colour;
+  padding: 10px 15px;
+  border: none;
+  color: #000;
+  margin: 0;
+  position: relative;
+  &:hover,
+  &:focus {
+    background: $primary_colour_alternative;
+  }
+  &.selected {
+    background: $secondary_colour;
+  }
 }
 .actions {
   position: absolute;
@@ -170,72 +211,22 @@ h1 {
   &.disabled {
     bottom:-100%;
   }
-}
-button {
-  display: inline-block;
-  background: $primary_colour;
-  padding: 10px 20px;
-  border: none;
-  color: #000;
-  margin: 0;
-  position: relative;
-  &:hover {
-    background: $primary_colour_alternative;
-  }
-  &.selected {
-    background: $secondary_colour;
+  button{
+    width: 100%;
+    position: static;
+    margin-bottom: 5px;
   }
 }
-.frame {
-	position: relative;
-	height: 460px;
-  background: $secondary_colour;
-  overflow: hidden;
-}
-
-#left-hand,
-#right-hand {
-	background: url('../images/hands-sprite.png') transparent;
-	width: 312px;
-	position: absolute;
-  margin-top: -67px;
-	height: 135px;
-}
-#left-hand {
-	left: 0;
-  top: 30%;
-  background-position: -312px -135px;
-	&.paper {background-position: 0 -135px; }
-	&.scissors {background-position: 0 0; }
-  &.spock {background-image: url('../images/spock.jpg'); }
-  &.lizard {background-image: url('../images/lizard.jpg'); }
-}
-#right-hand {
-	right: 0;
-  top: 50%;
-	background-position: -312px 0;
-	&.paper {background-position: -625px 0; }
-	&.scissors {background-position: -624px 135px; }
-  &.spock {background-image: url('../images/spock.jpg'); }
-  &.lizard {background-image: url('../images/lizard.jpg'); }
-}
-/* ============================================ *
-   * Reset
-* ============================================ */
 .reset-icon {
   position: absolute;
   left: 10px;
   top: 10px;
 }
-/* ============================================ *
-   * Auto Play
-* ============================================ */
 .auto-play-icon {
   position: absolute;
   top: 10px;
   left: 50%;
   @include transform (translateX(-50%));
-
 }
 /* ============================================ *
    * Setting
@@ -244,6 +235,7 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 1;
 }
 .settings {
   width: 100%;
@@ -253,13 +245,13 @@ button {
   background: rgba(255,255,255,0.85);
   opacity: 0;
   @include transform (translateY(100%));
-  @include transition (all 0.4s ease);
 }
 .settings.active{
   opacity: 1;
    z-index: 1;
   transition: all 0.4s ease;
   @include transform (translateY(0));
+  @include transition (all 0.4s ease);
 }
 .setting-pane {
   display: none;
@@ -303,19 +295,6 @@ button {
     margin-right:10px;
     vertical-align: middle;
   }
-
-}
-.actions button{
-  width: 100%;
-  position: static;
-  margin-bottom: 5px;
-}
-.frame {
-  height: 560px;
-}
-.center-wrap {
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 .message-text {
   text-align: center;
@@ -360,7 +339,6 @@ button {
     padding-bottom: 20px;
   }
 }
-
 /* ============================================ *
    * Retina Support
 * ============================================ */

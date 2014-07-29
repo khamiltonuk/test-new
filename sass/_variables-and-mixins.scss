@@ -1,0 +1,31 @@
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  box-sizing: $box-model;
+}
+@mixin transform($transformation) {
+  -webkit-transform:($transformation);
+  -ms-transform:($transformation);
+  -moz-transform:($transformation);
+  transform:($transformation);
+}
+@mixin transition($effect) {
+  -webkit-transition:$effect;
+  -ms-transition:$effect;
+  -moz-transition:$effect;
+  transition:$effect; 
+}
+@mixin background-size($size) {
+  -webkit-background-size:$size;
+  -o-background-size:$size;
+  -moz-background-size:$size;
+  background-size:$size;
+}
+// Color theme found on https://kuler.adobe.com/create/color-wheel/
+$primary_colour: #DA727E;
+$primary_colour_alternative: #AC6C82;
+
+$secondary_colour: #455C7B;
+$secondary_colour_alternative: #685C79 ;
+
+$hightlight_colur: #FFAA5C;
