@@ -107,8 +107,8 @@ var rockPaperScissors = function(){
         }
         if (target === 'js-auto-play'){
             var autoPlay = function(){
-                var standin = options[Math.floor(Math.random() * 5)],
-                    randomChoice = options[Math.floor(Math.random() * 5)];
+                var standin = options[Math.floor(Math.random() * options.length)],
+                    randomChoice = options[Math.floor(Math.random() * options.length)];
                     console.log(compareChoices(standin, randomChoice));
                 if (wins < (gameMode - 1 ) && lose < (gameMode - 1 )){
                     return autoPlay();
@@ -118,7 +118,7 @@ var rockPaperScissors = function(){
         }
         if ($(e.target).parent().hasClass('actions')){
             var userChoice = options[$(e.target).index()],
-                randomChoice = options[Math.floor(Math.random() * 5)];
+                randomChoice = options[Math.floor(Math.random() * options.length)];
             console.log(compareChoices(userChoice, randomChoice));
         }
     });
