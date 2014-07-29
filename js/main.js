@@ -35,9 +35,6 @@ var rockPaperScissors = function(){
             $('#js-reset').text('Play Again');
         }
     };
-    var gameOver = function(){
-
-    };
     var displayMessage = function(message, messageDuration){
         if ($('#message').length){
             $('#message').text(message).removeClass('hidden').attr('aria-hidden', 'false');
