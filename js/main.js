@@ -27,7 +27,7 @@ var rockPaperScissors = function(){
             //Game over
             if (wins === (gameMode - 1 ) ){
                 displayMessage('You win');
-            }else if (lose === 2) {
+            }else if (lose === (gameMode - 1 )) {
                 displayMessage('You lose');
             }
             $('#js-auto-play').addClass('hidden').attr('aria-hidden', 'true');
