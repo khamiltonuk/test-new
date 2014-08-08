@@ -162,8 +162,6 @@ h2 {
   background-position: -312px -135px;
   &.paper {background-position: 0 -135px; }
   &.scissors {background-position: 0 0; }
-  &.spock {background-image: url('../images/spock.jpg'); }
-  &.lizard {background-image: url('../images/lizard.jpg'); }
   &.bounce { 
     -webkit-animation-name: left-bounce;
     animation-name: left-bounce;
@@ -175,13 +173,13 @@ h2 {
   background-position: -312px 0;
   &.paper {background-position: -625px 0; }
   &.scissors {background-position: -624px 135px; }
-  &.spock {background-image: url('../images/spock.jpg'); }
-  &.lizard {background-image: url('../images/lizard.jpg'); }
   &.bounce {
     -webkit-animation-name: right-bounce;
     animation-name: right-bounce;
   }
 }
+.spock {background-image: url('../images/spock.jpg'); }
+.lizard {background-image: url('../images/lizard.jpg'); }
 /* ============================================ *
    * Buttons
 * ============================================ */
